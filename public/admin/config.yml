@@ -5,8 +5,6 @@ backend:
   base_url: https://api.netlify.com
   auth_endpoint: auth
 
-local_backend: true
-
 # Esto hace que el panel funcione sobre localhost durante pruebas locales
 # (npm run dev) sin necesitar Netlify Identity. En producción, Decap detecta
 # que no está en localhost y usa Git Gateway normalmente.
