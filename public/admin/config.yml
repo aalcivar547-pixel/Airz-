@@ -1,6 +1,11 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: aalcivar547-pixel/Airz-
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+local_backend: true
 
 # Esto hace que el panel funcione sobre localhost durante pruebas locales
 # (npm run dev) sin necesitar Netlify Identity. En producción, Decap detecta
