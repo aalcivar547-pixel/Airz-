@@ -1,0 +1,75 @@
+---
+import site from "../data/site.json";
+const { eyebrow, title, subtitle, buttonLabel, steps } = site.process;
+const phone = site.header.phone;
+---
+
+<section id="process" class="section-pad process">
+  <div class="container">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
+        <p class="subtitle">{subtitle}</p>
+      </div>
+      <a class="btn btn-blue" href={`tel:${phone}`}>{buttonLabel}</a>
+    </div>
+
+    <div class="grid">
+      {steps.map((s) => (
+        <div class="card" data-reveal>
+          <span class="num">{s.number}</span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+
+  .subtitle {
+    margin-top: 16px;
+    max-width: 420px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--color-section-bg);
+    border-radius: 16px;
+    padding: 32px 28px;
+  }
+
+  .num {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--color-blue);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .card h3 {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

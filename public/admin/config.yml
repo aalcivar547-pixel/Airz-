@@ -1,0 +1,214 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Esto hace que el panel funcione sobre localhost durante pruebas locales
+# (npm run dev) sin necesitar Netlify Identity. En producción, Decap detecta
+# que no está en localhost y usa Git Gateway normalmente.
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://sprezet.digital/airz-astro/
+display_url: https://sprezet.digital/airz-astro/
+
+collections:
+  - name: "site"
+    label: "Contenido del sitio"
+    files:
+      - file: "src/data/site.json"
+        name: "site"
+        label: "Sitio web (todo el contenido)"
+        fields:
+          - label: "Metadatos (SEO)"
+            name: "meta"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Título de la pestaña", name: "title", widget: "string" }
+              - { label: "Descripción (SEO)", name: "description", widget: "text" }
+
+          - label: "Encabezado / Menú"
+            name: "header"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Teléfono (formato +1XXXXXXXXXX)", name: "phone", widget: "string" }
+              - { label: "Teléfono (como se muestra)", name: "phoneLabel", widget: "string" }
+              - label: "Enlaces del menú"
+                name: "navLinks"
+                widget: "list"
+                fields:
+                  - { label: "Texto", name: "label", widget: "string" }
+                  - { label: "Enlace (ej. #services)", name: "href", widget: "string" }
+
+          - label: "Portada (Hero)"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño arriba del título", name: "eyebrow", widget: "string" }
+              - { label: "Título grande", name: "title", widget: "string" }
+              - { label: "Texto del botón", name: "buttonLabel", widget: "string" }
+              - { label: "Foto de fondo", name: "backgroundImage", widget: "image" }
+
+          - label: "Por qué elegirnos"
+            name: "whyChooseUs"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string" }
+              - { label: "Texto del botón", name: "buttonLabel", widget: "string" }
+              - label: "Tarjetas"
+                name: "features"
+                widget: "list"
+                fields:
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Texto", name: "text", widget: "text" }
+              - label: "Franja de marcas (texto)"
+                name: "brandStrip"
+                widget: "list"
+                field: { label: "Nombre", name: "value", widget: "string" }
+
+          - label: "Servicios"
+            name: "services"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string" }
+              - label: "Lista de servicios"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Texto", name: "text", widget: "text" }
+
+          - label: "Sobre nosotros"
+            name: "about"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Pestañas (Historia / Misión / Visión)"
+                name: "tabs"
+                widget: "list"
+                fields:
+                  - { label: "Nombre de la pestaña", name: "label", widget: "string" }
+                  - label: "Párrafos"
+                    name: "paragraphs"
+                    widget: "list"
+                    field: { label: "Párrafo", name: "value", widget: "text" }
+              - label: "Estadísticas"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Número (ej. 96% o 24/7)", name: "value", widget: "string" }
+                  - { label: "Descripción", name: "label", widget: "string" }
+
+          - label: "Nuestro proceso"
+            name: "process"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string" }
+              - { label: "Texto del botón", name: "buttonLabel", widget: "string" }
+              - label: "Pasos"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Número (ej. 1.)", name: "number", widget: "string" }
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Texto", name: "text", widget: "text" }
+
+          - label: "Sección YouTube"
+            name: "youtube"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Texto", name: "text", widget: "text" }
+              - { label: "Texto del botón", name: "ctaLabel", widget: "string" }
+              - { label: "Enlace al canal", name: "href", widget: "string" }
+
+          - label: "Reseñas"
+            name: "reviews"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Texto del enlace a Google", name: "seeMoreLabel", widget: "string" }
+              - { label: "Enlace a Google", name: "seeMoreHref", widget: "string" }
+              - label: "Reseñas"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Cita del cliente", name: "quote", widget: "text" }
+                  - { label: "Nombre mostrado", name: "name", widget: "string" }
+                  - { label: "Empresa / ciudad", name: "company", widget: "string" }
+
+          - label: "Sección TikTok"
+            name: "tiktok"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Texto", name: "text", widget: "text" }
+              - { label: "Texto del botón", name: "ctaLabel", widget: "string" }
+              - { label: "Enlace al perfil", name: "href", widget: "string" }
+
+          - label: "Calidad y confort (fotos + texto)"
+            name: "qualityComfort"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Texto", name: "text", widget: "text" }
+              - label: "Fotos circulares"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Foto", name: "src", widget: "image" }
+                  - { label: "Descripción (accesibilidad)", name: "alt", widget: "string" }
+
+          - label: "Preguntas frecuentes"
+            name: "faq"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Texto pequeño", name: "eyebrow", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Foto junto a las preguntas", name: "image", widget: "image" }
+              - label: "Preguntas"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Pregunta", name: "question", widget: "string" }
+                  - { label: "Respuesta", name: "answer", widget: "text" }
+
+          - label: "Pie de página"
+            name: "footer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Frase corta", name: "tagline", widget: "string" }
+              - { label: "Texto pequeño del CTA", name: "ctaEyebrow", widget: "string" }
+              - { label: "Título del CTA", name: "ctaTitle", widget: "string" }
+              - { label: "Texto del botón", name: "ctaButtonLabel", widget: "string" }
+              - { label: "Teléfono (formato +1XXXXXXXXXX)", name: "phone", widget: "string" }
+              - { label: "Teléfono (como se muestra)", name: "phoneLabel", widget: "string" }
+              - { label: "Correo", name: "email", widget: "string" }
+              - { label: "Texto de oficina / cobertura", name: "officeText", widget: "string" }
+              - { label: "Enlace de YouTube", name: "youtube", widget: "string" }
+              - { label: "Enlace de TikTok", name: "tiktok", widget: "string" }

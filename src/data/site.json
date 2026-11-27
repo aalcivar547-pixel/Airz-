@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "title": "HVAC JJSE CORP | Residential & Commercial HVAC Services in Connecticut",
+    "description": "HVAC JJSE CORP is a licensed contractor providing professional residential and commercial heating and air conditioning services across Connecticut."
+  },
+  "header": {
+    "phone": "+13478636982",
+    "phoneLabel": "+1 (347) 863 6982",
+    "navLinks": [
+      { "label": "HOME", "href": "#home" },
+      { "label": "ABOUT US", "href": "#about" },
+      { "label": "SERVICES", "href": "#services" },
+      { "label": "PROJECTS", "href": "#projects" },
+      { "label": "NEWS", "href": "#news" },
+      { "label": "CONTACT", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Cool Comfort, Every Day",
+    "title": "HVAC Services Residential & Commercial.",
+    "buttonLabel": "Call Now",
+    "backgroundImage": "/images/hero-bg.png"
+  },
+  "whyChooseUs": {
+    "eyebrow": "Why Choose Us.",
+    "title": "Quality You Can Trust",
+    "subtitle": "Dedicated to keeping your environment comfortable year-round.",
+    "buttonLabel": "Call Now",
+    "features": [
+      {
+        "title": "Energy Efficiency",
+        "text": "Save more on bills with our low-power, high-performance cooling technology."
+      },
+      {
+        "title": "Eco-Friendly Design",
+        "text": "Sustainable materials and water-based cooling reduce your carbon footprint every day."
+      },
+      {
+        "title": "Powerful Cooling",
+        "text": "Advanced airflow system delivers rapid, consistent cooling even in peak summer heat."
+      },
+      {
+        "title": "Quiet Operation",
+        "text": "Enjoy peaceful environments thanks to our ultra-quiet, whisper-soft fan technology."
+      }
+    ],
+    "brandStrip": ["Arctic Breeze", "Crystalline Air", "Arctic Breeze", "Crystalline Air"]
+  },
+  "services": {
+    "eyebrow": "Our Expertise",
+    "title": "Professional HVAC Solutions",
+    "subtitle": "Specialized services tailored to residential and commercial needs",
+    "items": [
+      { "title": "Wall-Mount Systems", "text": "Specialized installation for residential air conditioning" },
+      { "title": "Commercial Ductwork", "text": "Expert design and installation for business properties" },
+      { "title": "HVAC Repair", "text": "Fast and reliable diagnosis and fixing of system failures" },
+      { "title": "Heating Systems", "text": "Installation and maintenance to keep you warm" },
+      { "title": "Preventive Maintenance", "text": "Regular check-ups to extend your equipment's life" },
+      { "title": "System Upgrades", "text": "Modernizing older units for better energy efficiency" }
+    ]
+  },
+  "about": {
+    "eyebrow": "HVAC JJSE CORP",
+    "title": "Trusted Professionals in Connecticut",
+    "tabs": [
+      {
+        "label": "History",
+        "paragraphs": [
+          "Founded by Juan Ludeña, we began as a modest, family-operated venture fueled by a grand vision: to deliver unparalleled HVAC solutions with a personalized touch. From these unassuming roots, we've experienced consistent growth, establishing a solid reputation for dependability and superior service in both residential and commercial projects.",
+          "Today, we steadfastly uphold the principles of honesty, excellence, and ensuring customer contentment, all of which Juan Ludueña ingrained from the very beginning. Proudly serving clients throughout Connecticut, we are committed to being a reliable ally for all their climate control requirements."
+        ]
+      },
+      {
+        "label": "Mission",
+        "paragraphs": [
+          "Provide comprehensive heating, ventilation, and air conditioning (HVAC) solutions with the highest standards of quality and professionalism. We focus on optimizing the comfort of homes and the operational efficiency of businesses in Connecticut through specialized ductwork installations and cutting-edge residential systems."
+        ]
+      },
+      {
+        "label": "Vision",
+        "paragraphs": [
+          "Establish ourselves as the leading and most trusted HVAC contractor in Connecticut, recognized for our technical excellence, immediate responsiveness, and the implementation of innovative climate solutions that enhance the quality of life in our community."
+        ]
+      }
+    ],
+    "stats": [
+      { "value": "96%", "label": "Certified Technicians" },
+      { "value": "24/7", "label": "Response Readiness" },
+      { "value": "+10", "label": "Cities Covered in CT" }
+    ]
+  },
+  "process": {
+    "eyebrow": "Our Process",
+    "title": "Easy 3-Step Solution",
+    "subtitle": "Streamlined service from the first call to final testing.",
+    "buttonLabel": "Call now",
+    "steps": [
+      { "number": "1.", "title": "Request a Quote", "text": "Contact us to schedule your free estimate" },
+      { "number": "2.", "title": "On-Site Inspection", "text": "Our technicians evaluate your specific needs" },
+      { "number": "3.", "title": "Installation & Repair", "text": "Professional execution with guaranteed results" }
+    ]
+  },
+  "youtube": {
+    "eyebrow": "Our Work in Action",
+    "title": "Featured Projects on YouTube",
+    "text": "Watch our YouTube channel for expert tips on maintaining your AC and heating systems for peak performance.",
+    "ctaLabel": "Go to Youtube",
+    "href": "https://youtube.com/@juanludena-i8o"
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "What Our Clients Say",
+    "seeMoreLabel": "See more reviews from our CT clients on Google",
+    "seeMoreHref": "https://www.google.com/search?q=hvac+jjse+corp+reviews",
+    "items": [
+      {
+        "quote": "Our home's air is now consistently pleasant, thanks to their residential AC service. The team was punctual, respectful, and left no mess behind. A truly stress-free experience! - Alex R. in Stamford",
+        "name": "James Clark.",
+        "company": "Bridgeport Holdings, CT"
+      },
+      {
+        "quote": "I can always count on them! Their residential AC maintenance is thorough, and they always catch potential issues before they become major headaches. Highly recommended for homeowners! - Emily K. from Greenwich",
+        "name": "Jennifer Dust",
+        "company": "Hartford Innovations, CT"
+      },
+      {
+        "quote": "Upgrading to a new AC system with them was a breeze. They explained all the options clearly and the installation was quick and efficient. Our house feels amazing! - Brian L. in Fairfield",
+        "name": "Adam Hills",
+        "company": "Stamford Enterprises, CT"
+      }
+    ]
+  },
+  "tiktok": {
+    "eyebrow": "Our Work in Action",
+    "title": "Real-Time Updates from the Field",
+    "text": "Follow us on TikTok for the latest tips and tricks to keep your AC in top shape. See our recent projects and stay cool!",
+    "ctaLabel": "Go to TikTok",
+    "href": "https://www.tiktok.com/@jjsehvaccorp"
+  },
+  "qualityComfort": {
+    "eyebrow": "Expert HVAC Contractor",
+    "title": "Quality & Comfort in CT",
+    "text": "HVAC JJSE CORP is a licensed contractor providing professional residential and commercial heating and air conditioning services across Connecticut. We specialize in wall-mounted systems for homes and high-quality ductwork solutions for commercial properties, delivering reliable and tailored engineering for every client.",
+    "images": [
+      { "src": "/images/Group-20-1.png", "alt": "Smart thermostat control on a tablet" },
+      { "src": "/images/Group-19-1.png", "alt": "JJSE HVAC branded condenser unit" },
+      { "src": "/images/Group-18.png", "alt": "Rooftop HVAC condenser units" }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Let's Clear the Air",
+    "title": "Got Questions? We've got Answers",
+    "image": "/images/Container-6-1.png",
+    "items": [
+      {
+        "question": "Do you offer free estimates?",
+        "answer": "Yes, we provide free, detailed on-site estimates for any residential or commercial project across Connecticut."
+      },
+      {
+        "question": "What areas in Connecticut do you serve?",
+        "answer": "We cover a wide service area including Bridgeport, Fairfield, Westport, Trumbull, Shelton, Stratford, Milford, Stamford, and Greenwich."
+      },
+      {
+        "question": "Do you specialize in commercial work?",
+        "answer": "Absolutely. We are experts in commercial ductwork design and installation, as well as high-capacity HVAC systems for businesses and industrial spaces."
+      },
+      {
+        "question": "Are you licensed?",
+        "answer": "Absolutely, HVAC JJSE CORP is a fully licensed and insured contractor."
+      },
+      {
+        "question": "What are your hours?",
+        "answer": "We are open Monday to Friday, from 7:00 AM to 6:00 PM."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Serving Connecticut – Residential & Commercial HVAC Services.",
+    "ctaEyebrow": "Ready to Start?",
+    "ctaTitle": "Hire HVAC JJSE CORP Today.",
+    "ctaButtonLabel": "Call now",
+    "phone": "+13478636982",
+    "phoneLabel": "+1 (347) 863 6982",
+    "email": "services@hvacjjsecorp.com",
+    "officeText": "Serving Connecticut, USA.",
+    "youtube": "https://youtube.com/@juanludena-i8o",
+    "tiktok": "https://www.tiktok.com/@jjsehvaccorp"
+  }
+}

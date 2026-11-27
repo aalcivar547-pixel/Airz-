@@ -1,0 +1,97 @@
+---
+import site from "../data/site.json";
+
+const { eyebrow, title, subtitle, buttonLabel, features, brandStrip } = site.whyChooseUs;
+const phone = site.header.phone;
+---
+
+<section id="why-choose-us" class="section-pad why">
+  <div class="container">
+    <p class="eyebrow">{eyebrow}</p>
+    <div class="head-row">
+      <h2>{title}</h2>
+      <div class="head-row-right">
+        <p>{subtitle}</p>
+        <a class="btn btn-blue" href={`tel:${phone}`}>{buttonLabel}</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      {features.map((f) => (
+        <div class="card" data-reveal>
+          <h3>{f.title}</h3>
+          <p>{f.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="brand-strip" aria-hidden="true">
+      {brandStrip.map((b) => (
+        <span>{b}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    margin: 16px 0 56px;
+    flex-wrap: wrap;
+  }
+  .head-row h2 {
+    max-width: 480px;
+  }
+  .head-row-right {
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    border: 1px solid #ececec;
+    border-radius: 16px;
+    padding: 32px 24px;
+  }
+
+  .card h3 {
+    margin-bottom: 12px;
+  }
+
+  .brand-strip {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid #ececec;
+    font-family: var(--font-ui);
+    font-weight: 500;
+    color: #9a9a9a;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

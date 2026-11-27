@@ -1,0 +1,64 @@
+---
+import { base } from "../lib/paths";
+import site from "../data/site.json";
+
+const { eyebrow, title, text } = site.qualityComfort;
+const images = site.qualityComfort.images.map((img) => ({
+  ...img,
+  src: `${base}${img.src.replace(/^\//, "")}`,
+}));
+---
+
+<section id="news" class="section-pad quality">
+  <div class="container inner">
+    <div class="collage" aria-hidden="true">
+      {images.map((img) => (
+        <img src={img.src} alt={img.alt} loading="lazy" />
+      ))}
+    </div>
+    <div class="copy" data-reveal>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .collage {
+    display: flex;
+    gap: 16px;
+  }
+
+  .collage img {
+    width: 33%;
+    aspect-ratio: 238 / 268;
+    object-fit: cover;
+    border-radius: 999px;
+  }
+
+  .collage img:nth-child(2) {
+    margin-top: 32px;
+  }
+
+  .copy p {
+    margin-top: 20px;
+    max-width: 480px;
+  }
+
+  @media (max-width: 900px) {
+    .inner {
+      grid-template-columns: 1fr;
+    }
+    .collage {
+      order: 2;
+    }
+  }
+</style>

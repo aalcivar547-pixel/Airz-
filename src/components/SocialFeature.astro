@@ -1,0 +1,66 @@
+---
+export interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+  ctaLabel: string;
+  href: string;
+  flip?: boolean;
+}
+const { eyebrow, title, text, ctaLabel, href, flip = false } = Astro.props;
+---
+
+<section class="section-pad social" class:list={[{ flip }]}>
+  <div class="container inner">
+    <div class="copy" data-reveal>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+      <p class="text">{text}</p>
+      <a class="btn btn-blue" href={href} target="_blank" rel="noopener noreferrer">{ctaLabel}</a>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .social.flip .inner {
+    direction: rtl;
+  }
+  .social.flip .inner > * {
+    direction: ltr;
+  }
+
+  .copy {
+    max-width: 440px;
+  }
+
+  .text {
+    margin: 16px 0 32px;
+  }
+
+  .visual {
+    aspect-ratio: 16/10;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--color-blue), var(--color-blue-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    .inner,
+    .social.flip .inner {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+  }
+</style>

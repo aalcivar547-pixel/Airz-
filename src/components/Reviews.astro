@@ -1,0 +1,94 @@
+---
+import site from "../data/site.json";
+const { eyebrow, title, seeMoreLabel, seeMoreHref, items: reviews } = site.reviews;
+---
+
+<section id="reviews" class="section-pad reviews">
+  <div class="container">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
+      </div>
+      <a href={seeMoreHref} target="_blank" rel="noopener noreferrer" class="see-more">
+        {seeMoreLabel}
+      </a>
+    </div>
+
+    <div class="grid">
+      {reviews.map((r) => (
+        <article class="card" data-reveal>
+          <p class="quote">&ldquo;{r.quote}&rdquo;</p>
+          <div class="author">
+            <span class="name">{r.name}</span>
+            <span class="company">{r.company}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .see-more {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    text-decoration: underline;
+    max-width: 260px;
+    text-align: right;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--color-section-bg);
+    border-radius: 16px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .quote {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .company {
+    font-size: 14px;
+    color: #6b6b6b;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .see-more {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import { base } from "../lib/paths";
+import site from "../data/site.json";
+
+const heroBg = `${base}${site.hero.backgroundImage.replace(/^\//, "")}`;
+const { eyebrow, title, buttonLabel } = site.hero;
+const phone = site.header.phone;
+---
+
+<section id="home" class="hero" style={`--hero-bg: url(${heroBg})`}>
+  <div class="overlay"></div>
+  <div class="container hero-inner">
+    <p class="eyebrow eyebrow-light">{eyebrow}</p>
+    <h1>{title}</h1>
+    <a class="btn btn-accent" href={`tel:${phone}`}>{buttonLabel}</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    padding-top: 84px;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--color-dark-overlay-soft);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 60%, rgba(0, 0, 0, 0.6) 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+  }
+
+  .eyebrow-light {
+    color: var(--color-ice);
+  }
+
+  .hero h1 {
+    color: #fff;
+    margin-bottom: 32px;
+  }
+</style>

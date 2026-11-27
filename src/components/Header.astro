@@ -1,0 +1,166 @@
+---
+import Logo from "./Logo.astro";
+import site from "../data/site.json";
+
+const navLinks = site.header.navLinks;
+const phone = site.header.phone;
+const phoneLabel = site.header.phoneLabel;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <Logo light={true} />
+
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        {navLinks.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <a class="btn btn-accent call-btn" href={`tel:${phone}`}>Call now</a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    <ul>
+      {navLinks.map((link) => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  toggle?.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    mobileNav?.classList.toggle("open");
+  });
+
+  const header = document.querySelector(".site-header");
+  const onScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 40) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--color-dark-overlay-strong);
+    backdrop-filter: blur(6px);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .site-header.scrolled {
+    background: #e0e0e0;
+    backdrop-filter: none;
+  }
+
+  .site-header.scrolled .nav a,
+  .site-header.scrolled .wordmark {
+    color: #000;
+  }
+
+  .site-header.scrolled .menu-toggle span {
+    background: #000;
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 84px;
+  }
+
+  .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav a {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    color: #fff;
+  }
+
+  .call-btn {
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .menu-toggle span {
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    display: block;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .nav {
+      display: none;
+    }
+    .call-btn {
+      display: none;
+    }
+    .menu-toggle {
+      display: flex;
+    }
+    .mobile-nav {
+      display: block;
+      max-height: 0;
+      overflow: hidden;
+      background: #0d1b2a;
+      transition: max-height 0.25s ease;
+    }
+    .mobile-nav.open {
+      max-height: 400px;
+    }
+    .mobile-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 16px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-nav a {
+      color: #fff;
+      font-family: var(--font-body);
+      font-weight: 600;
+    }
+  }
+</style>

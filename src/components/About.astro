@@ -1,0 +1,145 @@
+---
+import site from "../data/site.json";
+const { eyebrow, title, tabs, stats } = site.about;
+---
+
+<section id="about" class="section-pad about">
+  <div class="container">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+
+    <div class="tabs" data-tabs data-reveal>
+      <div class="tab-menu" role="tablist">
+        {tabs.map((t, i) => (
+          <button
+            class="tab-title"
+            class:list={[{ active: i === 0 }]}
+            role="tab"
+            aria-selected={i === 0}
+            data-tab-target={`panel-${i}`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="tab-panes">
+        {tabs.map((t, i) => (
+          <div class="tab-pane" class:list={[{ active: i === 0 }]} id={`panel-${i}`} role="tabpanel">
+            {t.paragraphs.map((p) => (
+              <p>{p}</p>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="stats" data-reveal>
+      {stats.map((s) => (
+        <div class="stat">
+          <span class="value">{s.value}</span>
+          <span class="label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const wrap = document.querySelector("[data-tabs]");
+  if (wrap) {
+    const buttons = wrap.querySelectorAll(".tab-title");
+    const panes = wrap.querySelectorAll(".tab-pane");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        panes.forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+        const target = btn.getAttribute("data-tab-target");
+        wrap.querySelector(`#${target}`)?.classList.add("active");
+      });
+    });
+  }
+</script>
+
+<style>
+  .tabs {
+    margin: 48px 0 56px;
+  }
+
+  .tab-menu {
+    display: flex;
+    gap: 32px;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 32px;
+  }
+
+  .tab-title {
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 18px;
+    color: #9a9a9a;
+    padding: 0 0 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tab-title.active {
+    color: var(--color-text);
+    border-bottom-color: var(--color-blue);
+  }
+
+  .tab-pane {
+    display: none;
+    max-width: 760px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .tab-pane.active {
+    display: flex;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 48px;
+    border-top: 1px solid #ececec;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat .value {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--color-blue);
+  }
+
+  .stat .label {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: #6b6b6b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 700px) {
+    .stats {
+      grid-template-columns: 1fr;
+    }
+    .tab-menu {
+      gap: 20px;
+    }
+  }
+</style>

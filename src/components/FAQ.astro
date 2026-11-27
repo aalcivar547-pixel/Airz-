@@ -1,0 +1,130 @@
+---
+import { base } from "../lib/paths";
+import site from "../data/site.json";
+
+const { eyebrow, title, items } = site.faq;
+const faqs = items.map((item) => ({ q: item.question, a: item.answer }));
+const faqImage = `${base}${site.faq.image.replace(/^\//, "")}`;
+---
+
+<section id="contact" class="section-pad faq">
+  <div class="container inner">
+    <div class="copy" data-reveal>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+
+      <div class="accordion" data-accordion>
+        {faqs.map((item, i) => (
+          <div class="item" class:list={[{ open: i === 0 }]}>
+            <button class="q" aria-expanded={i === 0} data-faq-toggle>
+              <span>{item.q}</span>
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="a">
+              <p>{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="visual">
+      <img src={faqImage} alt="Hand adjusting a wall-mounted thermostat" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll("[data-faq-toggle]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".item");
+      const isOpen = item?.classList.contains("open");
+      item?.parentElement?.querySelectorAll(".item").forEach((i) => i.classList.remove("open"));
+      document.querySelectorAll("[data-faq-toggle]").forEach((b) => b.setAttribute("aria-expanded", "false"));
+      if (!isOpen) {
+        item?.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+</script>
+
+<style>
+  .inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .accordion {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .item {
+    border-bottom: 1px solid #ececec;
+  }
+
+  .q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    color: var(--color-text);
+  }
+
+  .icon {
+    flex-shrink: 0;
+    font-size: 22px;
+    color: var(--color-blue);
+    transition: transform 0.2s ease;
+  }
+
+  .item.open .icon {
+    transform: rotate(45deg);
+  }
+
+  .a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .item.open .a {
+    max-height: 200px;
+  }
+
+  .a p {
+    padding: 0 0 20px;
+    color: #6b6b6b;
+  }
+
+  .visual img {
+    border-radius: 24px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  @media (max-width: 900px) {
+    .inner {
+      grid-template-columns: 1fr;
+    }
+    .visual {
+      order: -1;
+      max-width: 320px;
+    }
+  }
+</style>

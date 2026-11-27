@@ -1,0 +1,120 @@
+---
+import Logo from "./Logo.astro";
+import site from "../data/site.json";
+
+const year = new Date().getFullYear();
+const f = site.footer;
+---
+
+<footer class="site-footer section-pad">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <Logo light={true} />
+        <p>{f.tagline}</p>
+      </div>
+
+      <div class="cta">
+        <p class="eyebrow eyebrow-light">{f.ctaEyebrow}</p>
+        <h2>{f.ctaTitle}</h2>
+        <a class="btn btn-accent" href={`tel:${f.phone}`}>{f.ctaButtonLabel}</a>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <span class="label">Phone</span>
+        <a href={`tel:${f.phone}`}>{f.phoneLabel}</a>
+      </div>
+      <div>
+        <span class="label">Email</span>
+        <a href={`mailto:${f.email}`}>{f.email}</a>
+      </div>
+      <div>
+        <span class="label">The Office</span>
+        <span>{f.officeText}</span>
+      </div>
+      <div>
+        <span class="label">Follow Us</span>
+        <a href={f.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href={f.tiktok} target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <span>© {year} HVAC JJSE CORP. All Rights Reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0d1b2a;
+    color: #fff;
+  }
+
+  .eyebrow-light {
+    color: var(--color-ice);
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .brand p {
+    margin-top: 16px;
+    max-width: 280px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .cta h2 {
+    color: #fff;
+    margin: 8px 0 24px;
+    max-width: 360px;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 48px 0;
+  }
+
+  .cols > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .label {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .cols a,
+  .cols span:not(.label) {
+    color: #fff;
+  }
+
+  .bottom {
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (max-width: 900px) {
+    .cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
